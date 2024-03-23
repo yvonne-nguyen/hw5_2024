@@ -1,0 +1,170 @@
+/* Add Poppins from Google Fonts. Use “concrete_seamless.png” as a background-image with a backup color of #f1f1f1.*/
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 16pt;
+    font-family: 'Poppins', serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/* Edit header tag using flex.*/
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Edit nav_links class using flex.*/
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style the card headers following the following styles:
+background: #288088,
+solid 2px border using #45ADAD,
+20px of padding on the top and the bottom,
+50px border-radius on the top left and right corners. */
+
+.card > header{
+    background: #288088;
+    border: solid 2px #45ADAD;
+    padding: 20px 0px 20px 0px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Remove visible white background color from the card. */
+.card{
+    border-radius: 50px 50px 0px 0px;
+}
+
+/* Styling the card class using the flex-property and the initial size is set to 450px. */
+.card{
+    flex: 0 1 450px;
+    flex-direction: column;
+}
+
+/* Styling for the pricing class so that it uses flex and the cards are centered both horizontally and vertically. */
+.pricing{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styled navigation link colors so that they remain the same color even after they have been visited. */
+.nav_links{
+    color:blue;
+    a:visited{
+        color: blue;
+    }
+}
+
+/* Style gallery image to have 300px width and solid borders. */
+.gallery img{
+    width: 300px;
+    border: solid 10px #50C7C7;
+    margin: 10px;
+}
+
+/* Styling gallery. */
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: space-evenly;
+}
+
+/* Media query for a minimum width of 900px. */
+@media screen and (min-width: 900px){
+    /* Styling the header so that the logo and navigation are as far apart as possible.*/
+    header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    /* Styling the navigation to match the pictured example.*/
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+    }
+    /* Make header stay on top while scrolling.*/
+    body>header{
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+    }
+
+    /* Styling the pricing to match the pictured example via a flex property to have a size of 275px.*/
+    .card{
+        flex: 0 1 275px;
+    }
+    /* Styling the pricing cards to match the pictured example. Cars are now aligned horizontally.*/
+    .pricing{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    /* Animate the logo with keyframes. */
+    @keyframes grow {
+      0% {
+        width: 25px;
+        opacity: 0;
+      }
+      100% {
+        width: 475px;
+        opacity: 1;
+      }
+    }
+
+    /* Apply the animation to the logo */
+    #logo {
+      animation: grow 5s ease-in-out forwards; /* Run animation once when page loads */
+  }
+}
+
+@media print and (orientation: portrait) {
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: none;
+    }
+
+    /* Style navigation link so that they spread accordig to the image. */
+    .nav_links {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        column-gap: 150px;
+    }
+
+    /* Style the pricing class so that the elements align along the bottom. */
+    .pricing {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: row;
+    }
+
+    /* Style the card elements to have a solid #45ADDD 2px border and use the flex-basis of 325px.*/
+    .card {
+        border: 2px solid #45ADDD;
+        flex: 0 1 325px;
+        flex-basis: 325px;
+    }
+    /* Hide gallery. */
+    .gallery {
+        display: none;
+    }
+
+    #gallery {
+        display: none;
+    }
+
+    .card h4::after {
+        content: '\1F44D';
+    }
+}
